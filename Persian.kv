@@ -1,0 +1,52 @@
+#:import la kivy.adapters.listadapter 
+#:import lbl kivy.uix.label
+
+<Persian>:
+    id: namus
+    title: title
+    search: search
+    beit_list: beit_list
+    adding: adding
+    BoxLayout:
+        size_hint_x: 1
+        orientation: 'vertical'
+        Label:
+            id: title
+            font_name: 'BNAZANIN.TTF'
+            font_size: '45dp'
+            size_hint_y: 5
+        Button:
+            id: search
+            font_name: 'BNAZANIN.TTF'
+            size_hint_y: 1
+            on_press: root.gonew()
+        Button:
+            id: adding
+            font_name: 'BNAZANIN.TTF'
+            size_hint_y: 1
+    ListView:
+        size_hint_x: 2
+        id: beit_list 
+        adapter: la.ListAdapter(data=[], cls=lbl.Label)
+<Poetry>:
+    orientation: 'vertical'
+    back: back
+    beit_list: beit_list
+    Button:
+        id: back
+        font_name: 'BNAZANIN.TTF'
+        size_hint_y:1
+        text: 'Back'
+        on_press: root.goback()
+    ListView:
+        size_hint_y: 7
+        id: beit_list 
+        adapter: la.ListAdapter(data=[], cls=lbl.Label)
+
+<MyLabel>:
+    font_name: 'BNAZANIN.TTF'
+    height: 60
+    on_press: self.set_index()
+    selected_color: [1,0,0,0]
+    deselected_color: [0,1,1,1]
+    halign: 'center'
