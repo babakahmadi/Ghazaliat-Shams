@@ -23,10 +23,10 @@ def extract_poem(page):
 
 root = ET.Element('root')
 poems = []
-for i in range(1,26):
+for i in range(1,201):
 	#print extract_poem(page)
 	poems.append(ET.SubElement(root,'Poem',name=str(i)))
-for i in range(25):
+for i in range(200):
 	page = html.fromstring(urllib.urlopen(url+str(i+1)).read())
 	this_poem = extract_poem(page)
 	for j in range(len(this_poem)):
