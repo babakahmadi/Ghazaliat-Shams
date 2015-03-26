@@ -9,10 +9,8 @@ from kivy.lang import Builder
 from bidi.algorithm import get_display
 from kivy.uix.listview import ListItemButton
 from kivy.factory import Factory
-from Beits import beits
-from Beits import Poems
+from Beits import extract_beits
 from Beits import extract_poem
-
 import arabic_reshaper
 
 
@@ -37,6 +35,7 @@ class Persian(BoxLayout):
         self.search.text = pars(u'برو به شعر')
         self.adding.text = pars(u'افزودن')
         self.beit_list.adapter.data = [pars(u'ناموس شعر')]
+        beits = extract_beits()
         for i in beits:
             self.beit_list.adapter.data.extend([pars(i)])
         self.beit_list.adapter.cls = MyLabel
