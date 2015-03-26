@@ -31,7 +31,7 @@ class MyLabel(ListItemButton):
 class Persian(BoxLayout):
     def __init__(self):
         super(Persian, self).__init__()
-        self.title.text = get_display(arabic_reshaper.reshape(u'غزلیات \n شمس \n تبریزی'))
+        self.title.text = pars(u'غزلیات \n شمس \n تبریزی')
         self.search.text = pars(u'برو به شعر')
         self.adding.text = pars(u'افزودن')
         self.beit_list.adapter.data = [pars(u'ناموس شعر')]
@@ -54,7 +54,7 @@ class Poetry(BoxLayout):
         self.beit_list.adapter.data = []
         poem = extract_poem(poemNum)
         for i in poem:
-            self.beit_list.adapter.data.extend([pars(i[1])+'      '+pars(i[0])])
+            self.beit_list.adapter.data.extend([pars(i[0])+'      '+pars(i[1])])
         self.beit_list.adapter.cls = MyLabel
     def goback(self):
         self.clear_widgets()
